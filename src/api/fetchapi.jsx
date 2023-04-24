@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 const cohort = "/2301-ftb-et-web-am";
 const BaseURL = "https://strangers-things.herokuapp.com/api";
 //fetches all posts... works as intended
@@ -23,6 +25,9 @@ export async function registeruser(signupuser, signuppass) {
       }),
     });
     const result = await response.json();
+    useEffect(() => {
+      settoken(token);
+    });
     // You can log ▲▲▲ the result
     // here ▼▼▼ to view the json object before returning it
     return result;
@@ -48,8 +53,17 @@ export async function login(loginuser1, loginpass1) {
     });
     const result = await response.json();
     console.log(result);
+    useEffect(() => {
+      settoken(token);
+    });
     return result;
   } catch (err) {
     console.error(err);
   }
 }
+
+// getting user token function
+// export async function gettoken(){
+//  let tokenresponse = await gettoken();
+//  if()
+// }

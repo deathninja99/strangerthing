@@ -12,7 +12,9 @@ export function Post() {
   return (
     <div>
       {posts.map((post) => (
-        <div key={post._id}>{post.title} </div>
+        <div key={post._id} id={post._id}>
+          {post.title}{" "}
+        </div>
       ))}
     </div>
   );
