@@ -1,30 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { FetchPosts } from "../api/fetchapi";
+import { singlepost } from "../api/fetchapi";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-export function Post() {
+
+let postid = useParams();
+
+export function Singleposting() {
   //get posts and set them with usestate
   const [posts, setposts] = useState([]);
   useEffect(() => {
     async function getp() {
-      const watermellon = await FetchPosts();
+      const watermellon = await singlepost(postid);
       setposts(watermellon);
     }
     getp();
-  }, []);
-  const Navigate = useNavigate();
+  }, [postid]);
   return (
     //posts in card format
 
     <div className="body">
       {posts.map((post) => (
         <>
-          <div
-            className="card"
-            onClick={() => {
-              const id = post._id;
-              Navigate(`./${post._id}`);
-            }}
-          >
+          <div className="card">
             <div className="cardtext" key={post._id} id={post._id}>
               {post.title}{" "}
             </div>

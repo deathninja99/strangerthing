@@ -8,7 +8,11 @@ export async function FetchPosts() {
   let Posts = await response.json();
   return Posts.data.posts;
 }
-
+export async function singlepost(postid) {
+  const response = await fetch(`${BaseURL}${cohort}/posts/${postid}`);
+  let posts = await response.json();
+  return posts.data.posts;
+}
 //working on register user
 export async function registeruser(signupuser, signuppass) {
   try {

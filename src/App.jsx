@@ -1,10 +1,8 @@
-import { useState } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import { FetchPosts } from "./api/fetchapi";
 import { Post } from "./routes/Posts";
-import profile from "./routes/profile";
-import { loginpage, singup } from "./routes/register";
+import { Singleposting } from "./routes/singlepost";
 
 function App() {
   FetchPosts();
@@ -19,11 +17,11 @@ function App() {
       </div>
       {/* main body */}
       <Routes>
-        {/* create post page, view all posts,  */}
+        {/* create post page, view singlepost,  */}
         <Route path="/profile" element={<profile />}></Route>
         <Route path="/" element={<Post />}></Route>
         <Route path="/login" element={<loginpage></loginpage>}></Route>
-        <Route path="/:id" element={<></>}></Route>
+        <Route path="./:id" element={<Singleposting />}></Route>
       </Routes>
       <footer className="footer">2023 Sass</footer>
     </div>
