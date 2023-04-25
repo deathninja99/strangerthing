@@ -1,6 +1,7 @@
 import { FetchPosts } from "../api/fetchapi";
 import { useEffect, useState } from "react";
 export function Post() {
+  //get posts and set them with usestate
   const [posts, setposts] = useState([]);
   useEffect(() => {
     async function getp() {
@@ -10,14 +11,18 @@ export function Post() {
     getp();
   }, []);
   return (
-    <div>
+    //posts in card format
+
+    <div className="body">
       {posts.map((post) => (
-        <div key={post._id} id={post._id}>
-          {post.title}{" "}
-        </div>
+        <>
+          <div className="card">
+            <div className="cardtext" key={post._id} id={post._id}>
+              {post.title}{" "}
+            </div>
+          </div>
+        </>
       ))}
     </div>
   );
 }
-// supposed to map through every post and create a post id as well as showing each post
-// it makes everything disappear and post is undefined...
