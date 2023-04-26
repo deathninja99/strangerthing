@@ -13,8 +13,17 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.navspace {
+  margin-right: 5px;
+}
+.form {
+  width: max-content;
+}
+.inputspace {
+  margin-right: 5px;
+}
 .footer {
-  width: 100%;
+  width: auto;
   position: relative;
   bottom: 0px;
   left: 0;

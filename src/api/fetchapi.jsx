@@ -14,7 +14,7 @@ export async function singlepost(postid) {
   return posts.data.posts;
 }
 //working on register user
-export async function registeruser(signupuser, signuppass) {
+export async function registeruser(username, password) {
   try {
     const response = await fetch(`${BaseURL}${cohort}/users/register`, {
       method: "POST",
@@ -23,8 +23,8 @@ export async function registeruser(signupuser, signuppass) {
       },
       body: JSON.stringify({
         user: {
-          username: `${signupuser}`,
-          password: `${signuppass}`,
+          username: `${username}`,
+          password: `${password}`,
         },
       }),
     });
@@ -34,6 +34,7 @@ export async function registeruser(signupuser, signuppass) {
     });
     // You can log ▲▲▲ the result
     // here ▼▼▼ to view the json object before returning it
+    console.log(result);
     return result;
   } catch (err) {
     console.error(err);
@@ -41,7 +42,7 @@ export async function registeruser(signupuser, signuppass) {
 }
 
 //working on login function
-export async function login(loginuser1, loginpass1) {
+export async function login(username, password) {
   try {
     const response = await fetch(`${BaseURL}${cohort}/users/login`, {
       method: "POST",
@@ -50,8 +51,8 @@ export async function login(loginuser1, loginpass1) {
       },
       body: JSON.stringify({
         user: {
-          username: `${loginuser1}`,
-          password: `${loginpass1}`,
+          username: `${username}`,
+          password: `${password}`,
         },
       }),
     });
@@ -60,6 +61,7 @@ export async function login(loginuser1, loginpass1) {
     useEffect(() => {
       settoken(token);
     });
+    console.log(result);
     return result;
   } catch (err) {
     console.error(err);
@@ -69,5 +71,6 @@ export async function login(loginuser1, loginpass1) {
 // getting user token function
 // export async function gettoken(){
 //  let tokenresponse = await gettoken();
+
 //  if()
 // }

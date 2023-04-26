@@ -21,8 +21,10 @@ export function Post() {
           <div
             className="card"
             onClick={() => {
-              const id = post._id;
-              Navigate(`./${post._id}`);
+              {
+                console.log(posts.data);
+                posts.data;
+              }
             }}
           >
             <div className="cardtext" key={post._id} id={post._id}>
