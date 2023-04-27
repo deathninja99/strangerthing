@@ -12,8 +12,8 @@ function App() {
     <div className="App">
       <div className="nav">
         <Link to="./">home</Link>
-        <a href=""></a>
-        <a href="">profile</a>
+        <a href="./messages">Messages</a>
+        <a href="./profile">profile</a>
         <div>
           <Link className="navspace" to="./register">
             register

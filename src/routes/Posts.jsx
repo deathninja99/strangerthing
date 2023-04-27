@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { FetchPosts } from "../api/fetchapi";
 import { useEffect, useState } from "react";
 export function Post() {
@@ -11,11 +10,10 @@ export function Post() {
     }
     getp();
   }, []);
-  const Navigate = useNavigate();
   return (
     //posts in card format
-
     <div className="body">
+      <h1>Posts</h1>
       {posts.map((post) => (
         <>
           <div
@@ -28,7 +26,11 @@ export function Post() {
             }}
           >
             <div className="cardtext" key={post._id} id={post._id}>
-              {post.title}{" "}
+              {post.title}
+              <br></br>
+              {post.description}
+              <br />
+              {post.author.username}
             </div>
           </div>
         </>
